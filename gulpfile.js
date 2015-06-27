@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var flatten = require('gulp-flatten');
 var concat = require('gulp-concat');
+var rename = require('gulp-rename');
 
 gulp.task('bower', function() {
 	return gulp.src('bower_components/**/*.min.js')
@@ -20,4 +21,11 @@ gulp.task('vendor', function() {
         .pipe(gulp.dest('public/app/dist/'));
 });
 
-gulp.task('default', ['bower', 'vendor']);
+gulp.task('scripts', function() {
+    return gulp.src('public/app/scripts/**/*.js')
+        .pipe(concat('datatables-test.js'))
+        .pipe(gulp.dest('public/app/dist/'))
+        .pipe(rename('datatables-test.min.js'))
+});
+
+gulp.task('default', ['bower', 'vendor', 'scripts']);
