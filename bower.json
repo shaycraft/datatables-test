@@ -1,0 +1,21 @@
+{
+  "name": "DataTablesTest",
+  "version": "1",
+  "authors": [
+    "Sam <phreakdawg@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.4.1"
+  },
+  "dependencies": {
+    "DataTables": "~1.10.7"
+  }
+}
