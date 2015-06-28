@@ -16,6 +16,7 @@
     "angular": "~1.4.1"
   },
   "dependencies": {
-    "DataTables": "~1.10.7"
+    "DataTables": "~1.10.7",
+    "bootstrap": "~3.3.5"
   }
 }
