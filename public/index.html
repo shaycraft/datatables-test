@@ -1,4 +1,4 @@
-<html>
+<html ng-app="dttest">
 <head>
 	<title>Datatables Test</title>
 	<script type="text/javascript" src="app/dist/vendor.min.js"></script>
@@ -6,37 +6,12 @@
 	<link rel="stylesheet" href="app/dist/site.css" />
 </head>
 <body>
-<div class="container-fluid" role="main">
-<table id="tblTest" class="table table-striped table-hover table-responsive">
-	<thead>
-		<tr>
-			<th>var 1</th>
-			<th>var 2</th>
-			<th>var 3</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>a</td>
-			<td>b</td>
-			<td>c</td>
-			<td><button>Click me</button></td>
-		</tr>
-		<tr>
-			<td>d</td>
-			<td>e</td>
-			<td>f</td>
-			<td><button>Click me</button></td>
-		</tr>
-		<tr>
-			<td>g</td>
-			<td>h</td>
-			<td>i</td>
-			<td><button>Click me</button></td>
-		</tr>
-	</tbody>
-</table>
+<div ng-controller="MainCtrl" >
+	<p>{{testvar}}</p>
+	<div class="container-fluid" role="main">
+	<table id="tblTest" class="table table-striped table-hover table-responsive" testtable>
+	</table>
+	</div>
 </div>
 </body>
 </html>

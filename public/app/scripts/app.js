@@ -1,6 +1,22 @@
 $(document).ready(function() {
-	var dtOptions = {
-		data : null,
+	
+
+	//$('#tblTest').DataTable(dtOptions);
+
+	$('button').click(function() {
+		alert('aaah!');
+	});
+});
+
+var app = angular.module('dttest', []);
+
+var dtdata = [
+	['a','b','c'],
+	['1','2','3']
+	]
+
+var dtOptions = {
+		data : dtdata,
 		columns: [
 			{ title: 'var1' },
 			{title: 'var2' },
@@ -12,9 +28,21 @@ $(document).ready(function() {
 		]
 	}
 
-	$('#tblTest').DataTable(dtOptions);
+var MainCtrl = function($scope) {
+	$scope.testvar = 'blah';
 
-	$('button').click(function() {
-		alert('aaah!');
-	});
+}
+
+app.controller('MainCtrl', ['$scope', MainCtrl]);
+
+app.directive('testtable', function() {
+    
+  return {
+    restrict: "AE",    
+
+    link: function(scope, elem, attrs) {
+
+      $(elem).DataTable(dtOptions);
+    }
+  };
 });
