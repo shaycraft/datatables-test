@@ -26,7 +26,8 @@ gulp.task('vendor', function() {
 });
 
 gulp.task('css', function() {
-    return gulp.src('bower_components/bootstrap/dist/css/bootstrap.css')
+    //return gulp.src('bower_components/bootstrap/dist/css/bootstrap.css')
+    return gulp.src('bootstrap_themes/flatly.css')
         .pipe(concat('site.css'))
         .pipe(gulp.dest('public/app/dist'));
 });
