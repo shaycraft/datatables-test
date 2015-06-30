@@ -4,7 +4,10 @@ $(document).ready(function() {
 	//$('#tblTest').DataTable(dtOptions);
 
 	$('button').click(function() {
-		alert('aaah!');
+		//alert('aaah!');
+		var thisRow = $(this).parents('tr');
+		console.log(angular.element(this).scope().dt.row(thisRow).data());
+		console.log($(this).parents('tr'));
 	});
 });
 
@@ -28,12 +31,22 @@ var dtOptions = {
 		]
 	}
 
-var MainCtrl = function($scope) {
+
+
+var MainCtrl = function($scope, $q) {
 	$scope.testvar = 'blah';
+
+	$scope.getData = function() {
+		var deferred = $q.defer();
+
+		deferred.resolve(dtOptions);
+
+		return deferred.promise;
+	}
 
 }
 
-app.controller('MainCtrl', ['$scope', MainCtrl]);
+app.controller('MainCtrl', ['$scope','$q', MainCtrl]);
 
 app.directive('testtable', function() {
     
@@ -41,8 +54,10 @@ app.directive('testtable', function() {
     restrict: "AE",    
 
     link: function(scope, elem, attrs) {
-
-      $(elem).DataTable(dtOptions);
+    	scope.getData().then(function(x) {
+    		scope.dt = $(elem).DataTable(x);
+    	});
+      //$(elem).DataTable(dtOptions);
     }
   };
 });
